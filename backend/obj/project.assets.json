@@ -89,11 +89,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PVV1FE\\Documents\\Seminare\\ASP .NET WebApp\\Roblocks\\Roblocks\\Roblocks.csproj",
-      "projectName": "Roblocks",
-      "projectPath": "C:\\Users\\PVV1FE\\Documents\\Seminare\\ASP .NET WebApp\\Roblocks\\Roblocks\\Roblocks.csproj",
+      "projectUniqueName": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\backend.csproj",
+      "projectName": "backend",
+      "projectPath": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\backend.csproj",
       "packagesPath": "C:\\Users\\PVV1FE\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PVV1FE\\Documents\\Seminare\\ASP .NET WebApp\\Roblocks\\Roblocks\\obj\\",
+      "outputPath": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

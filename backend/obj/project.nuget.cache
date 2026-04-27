@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bPIdR9071dU=",
+  "dgSpecHash": "PjS033ukNa0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\PVV1FE\\Documents\\Seminare\\ASP .NET WebApp\\Roblocks\\Roblocks\\Roblocks.csproj",
+  "projectFilePath": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PVV1FE\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.7\\microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
     "C:\\Users\\PVV1FE\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
