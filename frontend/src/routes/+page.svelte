@@ -1,14 +1,27 @@
 <script>
 	import Button from '../components/Button.svelte';
 	const trendingGames = [
-		{ id: 1, name: 'Tower of Misery', imageUrl: '/avatar.png', players: '1.2k' },
-		{ id: 2, name: 'Adopt a Pet!', imageUrl: '/avatar.png', players: '5.8k' },
-		{ id: 3, name: 'Escape the Dungeon Obby', imageUrl: '/avatar.png', players: '3.4k'},
-		{ id: 4, name: 'Tycoon Simulator', imageUrl: '/avatar.png', players: '2.1k' },
-		{ id: 5, name: 'Tycoon Simulator', imageUrl: '/avatar.png', players: '2.1k' },
-		{ id: 6, name: 'Tycoon Simulator', imageUrl: '/avatar.png', players: '2.1k' },
-		{ id: 7, name: 'Tycoon Simulator', imageUrl: '/avatar.png', players: '2.1k' },
-		{ id: 8, name: 'Tycoon Simulator', imageUrl: '/avatar.png', players: '2.1k' }
+		{ id: 1, name: 'Ninja Fighters', imageUrl: '/game-icons/IMG_0799.WEBP', players: '1.2k' },
+		{ id: 2, name: 'Blob Hunter', imageUrl: '/game-icons/IMG_0800.WEBP', players: '1.2k' },
+		{ id: 3, name: 'Scary Game', imageUrl: '/game-icons/IMG_0801.WEBP', players: '1.2k' },
+		{ id: 4, name: 'Steal a Brainrot', imageUrl: '/game-icons/IMG_0802.WEBP', players: '1.2k' },
+		{ id: 5, name: 'Kick a Brainrot', imageUrl: '/game-icons/IMG_0803.WEBP', players: '1.2k' },
+		{ id: 6, name: 'Catch a fish', imageUrl: '/game-icons/IMG_0804.WEBP', players: '1.2k' },
+		{ id: 7, name: 'Attack on Titan', imageUrl: '/game-icons/IMG_0805.WEBP', players: '1.2k' },
+		{ id: 8, name: 'Steal a Brainrot 2', imageUrl: '/game-icons/IMG_0806.WEBP', players: '1.2k' },
+		{ id: 9, name: 'Kill the Brainrots', imageUrl: '/game-icons/IMG_0807.WEBP', players: '1.2k' },
+		{ id: 10, name: 'Cheese Hunting Game', imageUrl: '/game-icons/IMG_0808.WEBP', players: '1.2k' },
+		{ id: 11, name: 'Dont fall in the lava', imageUrl: '/game-icons/IMG_0809.WEBP', players: '1.2k' },
+		{ id: 12, name: 'Mining Tycoon', imageUrl: '/game-icons/IMG_0810.WEBP', players: '1.2k' },
+		{ id: 13, name: 'Catch a LuckyBlock', imageUrl: '/game-icons/IMG_0811.WEBP', players: '1.2k' },
+		{ id: 14, name: '67 Game', imageUrl: '/game-icons/IMG_0812.WEBP', players: '1.2k' },
+		{ id: 15, name: 'Eat all the Puppys', imageUrl: '/game-icons/IMG_0813.WEBP', players: '1.2k' },
+		{ id: 16, name: 'Piss of your Girlfriend Game', imageUrl: '/game-icons/IMG_0814.WEBP', players: '1.2k' },
+		{ id: 17, name: 'Aura Game', imageUrl: '/game-icons/IMG_0815.WEBP', players: '1.2k' },
+		{ id: 18, name: 'Dont let him catch you', imageUrl: '/game-icons/IMG_0816.WEBP', players: '1.2k' },
+		{ id: 19, name: 'Money Tycoon', imageUrl: '/game-icons/IMG_0817.WEBP', players: '1.2k' },
+		{ id: 20, name: 'ZERO: Basketball', imageUrl: '/game-icons/IMG_0818.WEBP', players: '1.2k' },
+	
 	];
 </script>
 
