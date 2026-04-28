@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "y4arall4ChQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\MEE3WE\\Documents\\projects\\seminar\\net core\\reBlocks\\Roblocks\\backend\\Roblocks.csproj",
@@ -7,6 +8,14 @@
     "C:\\Users\\MEE3WE\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.7\\microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
     "C:\\Users\\MEE3WE\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512",
     "C:\\Users\\MEE3WE\\.nuget\\packages\\scalar.aspnetcore\\2.14.6\\scalar.aspnetcore.2.14.6.nupkg.sha512"
+=======
+  "dgSpecHash": "PjS033ukNa0=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\backend.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\PVV1FE\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.7\\microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
+    "C:\\Users\\PVV1FE\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+>>>>>>> games-route-stuff
   ],
   "logs": []
 }

@@ -125,11 +125,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\MEE3WE\\Documents\\projects\\seminar\\net core\\reBlocks\\Roblocks\\backend\\Roblocks.csproj",
       "projectName": "Roblocks",
       "projectPath": "C:\\Users\\MEE3WE\\Documents\\projects\\seminar\\net core\\reBlocks\\Roblocks\\backend\\Roblocks.csproj",
       "packagesPath": "C:\\Users\\MEE3WE\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\MEE3WE\\Documents\\projects\\seminar\\net core\\reBlocks\\Roblocks\\backend\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\backend.csproj",
+      "projectName": "backend",
+      "projectPath": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\backend.csproj",
+      "packagesPath": "C:\\Users\\PVV1FE\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\obj\\",
+>>>>>>> games-route-stuff
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

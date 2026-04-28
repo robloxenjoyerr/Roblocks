@@ -1,37 +1,23 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\MEE3WE\\Documents\\projects\\seminar\\net core\\reBlocks\\Roblocks\\backend\\Roblocks.csproj": {}
+    "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MEE3WE\\Documents\\projects\\seminar\\net core\\reBlocks\\Roblocks\\backend\\Roblocks.csproj": {
+    "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MEE3WE\\Documents\\projects\\seminar\\net core\\reBlocks\\Roblocks\\backend\\Roblocks.csproj",
-        "projectName": "Roblocks",
-        "projectPath": "C:\\Users\\MEE3WE\\Documents\\projects\\seminar\\net core\\reBlocks\\Roblocks\\backend\\Roblocks.csproj",
-        "packagesPath": "C:\\Users\\MEE3WE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MEE3WE\\Documents\\projects\\seminar\\net core\\reBlocks\\Roblocks\\backend\\obj\\",
-=======
-    "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\Roblocks\\Roblocks.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\Roblocks\\Roblocks.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\Roblocks\\Roblocks.csproj",
-        "projectName": "Roblocks",
-        "projectPath": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\Roblocks\\Roblocks.csproj",
+        "projectUniqueName": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\backend.csproj",
+        "projectName": "backend",
+        "projectPath": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\backend.csproj",
         "packagesPath": "C:\\Users\\PVV1FE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\Roblocks\\obj\\",
->>>>>>> games-route-stuff
+        "outputPath": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\MEE3WE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PVV1FE\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -67,10 +53,6 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[10.0.7, )"
-            },
-            "Scalar.AspNetCore": {
-              "target": "Package",
-              "version": "[2.14.6, )"
             }
           },
           "imports": [
@@ -92,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\MEE3WE\\.dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Users\\PVV1FE\\.dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
