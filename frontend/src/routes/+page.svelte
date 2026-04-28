@@ -1,4 +1,6 @@
 <script>
+	import Button from '../components/Button.svelte';
+
 	// In einer echten App würden diese Daten von deiner API kommen.
 	const trendingGames = [
 		{ id: 1, name: 'Tower of Misery', imageUrl: '/placeholder-game-1.jpg', players: '1.2k' },
@@ -12,36 +14,37 @@
 		{ id: 4, name: 'Tycoon Simulator', imageUrl: '/placeholder-game-4.jpg', players: '2.1k' }
 	];
 </script>
-
-<!-- WICHTIG: Füge Platzhalterbilder in deinen `static`-Ordner ein,
-     damit sie angezeigt werden (z.B. `/static/placeholder-hero.jpg`) -->
-
 <div class="bg-background text-text-main min-h-screen">
 	<!-- 1. Header -->
 	<header
 		class="bg-surface/80 sticky top-0 z-50 border-b border-gray-200 bg-transparent backdrop-blur-sm"
 	>
-		<nav class="container mx-5 w-fill flex items-center justify-between py-4">
-			<!-- Logo -->
-			<a href="/" class="text-primary  text-4xl uppercase font-extrabold text-red-500">Roblocks</a>
-
-			<!-- Login Button -->
+		<nav class="flex w-full items-center justify-between px-5 py-4">
+            <span class="flex gap-5 justify-center items-center">
+                <Button iconUrl="menu" label=""  />
+                <a href="/" class="text-primary self-center text-5xl font-extrabold text-red-500 uppercase">Roblocks</a>
+            </span>
 			<div>
 				<a
 					href="/login"
-					class="bg-primary rounded-lg px-6 py-2 font-bold text-white transition-opacity hover:opacity-90"
+					class="text-red-500 bg-primary rounded-lg px-6 py-2 font-bold transition-opacity hover:opacity-90"
 				>
 					Log In
 				</a>
 			</div>
 		</nav>
 	</header>
+	<nav id="side-navbar" class="fixed hidden top-0 left-0 z-40 h-screen w-20 bg-black/50 text-white">
+		<div class="flex flex-col items-center gap-6 pt-6">
+			<span class="text-xs">123</span>
+		</div>
+	</nav>
 
 	<main>
 		<!-- Hero Section -->
-		<section class="relative bg-black text-center h-250 text-white">
+		<section class=" h-250 bg-black/50 text-center text-white">
 			<div class="absolute inset-0 bg-black">
-				<img src="./roblocks.png" alt="Stuff" class="h-full w-full object-cover opacity-80" />
+				<img src="./roblocks.png" alt="Stuff" class="-z-50 h-full w-full object-cover opacity-80" />
 				<div
 					class="from-background via-background/50 absolute inset-0 bg-gradient-to-t to-transparent"
 				></div>
@@ -109,7 +112,6 @@
 </div>
 
 <style>
-	/* Ein kleiner Helfer für den Textschatten im Hero-Bereich */
 	.text-shadow {
 		text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 	}
