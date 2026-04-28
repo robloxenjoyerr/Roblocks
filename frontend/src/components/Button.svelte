@@ -1,17 +1,23 @@
-<script>
-    let name = "Button"
+<script lang="ts">
+	let {
+		label = "Button",
+		iconUrl = "",
+		style = "",
+		onClick = () => {}
+	} = $props();
 
-    const {
-        label = "Button",
-        iconUrl = "",
-        style =""
-    } = $props()
+	function handleClick(event: MouseEvent) {
+		onClick(event);
+	}
 </script>
 
-    <button class={`flex gap-3 w-fit h-fit bg-black/10 p-2 hover:bg-black/20 active:bg-black/30 border border-black rounded-xl uppercase font-bold ${style}`}>
-        {#if iconUrl.length > 0}
-            <img class="w-5 h-5 self-center" src={`/${iconUrl}.png`} alt="/avatar.png">
-        {/if}
-        {label}
-    </button>
+<button
+	onclick={handleClick}
+	class={`flex h-fit w-full gap-3 rounded-xl p-2 font-bold uppercase hover:bg-black/20 active:bg-black/30 ${style}`}
+>
+	{#if iconUrl.length > 0}
+		<img class="h-5 w-5 self-center" src={`/${iconUrl}.png`} alt="icon" />
+	{/if}
 
+	{label}
+</button>
