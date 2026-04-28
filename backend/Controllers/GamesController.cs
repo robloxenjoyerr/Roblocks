@@ -2,9 +2,7 @@
 
 namespace Roblocks.Controllers;
 
-[ApiController]
-[Route("[controller]")]
-public class GamesController:ControllerBase
+public class GamesController:ApiBaseController
 {
     
 private static readonly string[] Games={
@@ -52,6 +50,8 @@ private static readonly string[] Games={
 
     
     [HttpGet("{index}")]
+    [ProducesResponseType<string>(StatusCodes.Status200OK)]
+    [ProducesResponseType<string>(StatusCodes.Status404NotFound)]
     public IActionResult Get(int index)
     {
         const int RESPONSES_PER_PAGE = 20;

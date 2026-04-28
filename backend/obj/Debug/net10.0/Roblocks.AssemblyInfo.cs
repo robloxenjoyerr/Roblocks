@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Roblocks")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3af0a57455abf5f3f58d2dbf7045d3e377b0c4fc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f0b35169cc19b8c9e3ee1ecca1ad216d637da1a9")]
 [assembly: System.Reflection.AssemblyProductAttribute("Roblocks")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Roblocks")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
