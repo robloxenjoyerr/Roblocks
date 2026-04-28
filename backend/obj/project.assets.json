@@ -119,31 +119,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MEE3WE\\.nuget\\packages\\": {},
+    "C:\\Users\\PVV1FE\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\MEE3WE\\Documents\\projects\\seminar\\net core\\reBlocks\\Roblocks\\backend\\Roblocks.csproj",
-      "projectName": "Roblocks",
-      "projectPath": "C:\\Users\\MEE3WE\\Documents\\projects\\seminar\\net core\\reBlocks\\Roblocks\\backend\\Roblocks.csproj",
-      "packagesPath": "C:\\Users\\MEE3WE\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MEE3WE\\Documents\\projects\\seminar\\net core\\reBlocks\\Roblocks\\backend\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\backend.csproj",
+      "projectUniqueName": "C:\\Users\\PVV1FE\\Documents\\Seminare\\ASP .NET WebApp\\Roblocks\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\backend.csproj",
+      "projectPath": "C:\\Users\\PVV1FE\\Documents\\Seminare\\ASP .NET WebApp\\Roblocks\\backend\\backend.csproj",
       "packagesPath": "C:\\Users\\PVV1FE\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\obj\\",
->>>>>>> games-route-stuff
+      "outputPath": "C:\\Users\\PVV1FE\\Documents\\Seminare\\ASP .NET WebApp\\Roblocks\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\MEE3WE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PVV1FE\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -204,7 +196,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\MEE3WE\\.dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Users\\PVV1FE\\.dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -621,5 +613,13 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\PVV1FE\\Documents\\Seminare\\ASP .NET WebApp\\Roblocks\\backend\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0."
+    }
+  ]
 }

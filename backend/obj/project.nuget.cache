@@ -1,21 +1,22 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "y4arall4ChQ=",
+  "dgSpecHash": "xliiVeMViHY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\MEE3WE\\Documents\\projects\\seminar\\net core\\reBlocks\\Roblocks\\backend\\Roblocks.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\MEE3WE\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.7\\microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
-    "C:\\Users\\MEE3WE\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512",
-    "C:\\Users\\MEE3WE\\.nuget\\packages\\scalar.aspnetcore\\2.14.6\\scalar.aspnetcore.2.14.6.nupkg.sha512"
-=======
-  "dgSpecHash": "PjS033ukNa0=",
-  "success": true,
-  "projectFilePath": "C:\\Users\\PVV1FE\\RiderProjects\\Roblocks\\backend\\backend.csproj",
+  "projectFilePath": "C:\\Users\\PVV1FE\\Documents\\Seminare\\ASP .NET WebApp\\Roblocks\\backend\\backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PVV1FE\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.7\\microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
-    "C:\\Users\\PVV1FE\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
->>>>>>> games-route-stuff
+    "C:\\Users\\PVV1FE\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512",
+    "C:\\Users\\PVV1FE\\.nuget\\packages\\scalar.aspnetcore\\2.14.6\\scalar.aspnetcore.2.14.6.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "message": "Problem reading the cache file C:\\Users\\PVV1FE\\Documents\\Seminare\\ASP .NET WebApp\\Roblocks\\backend\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
+      "projectPath": "C:\\Users\\PVV1FE\\Documents\\Seminare\\ASP .NET WebApp\\Roblocks\\backend\\backend.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\PVV1FE\\Documents\\Seminare\\ASP .NET WebApp\\Roblocks\\backend\\backend.csproj",
+      "targetGraphs": []
+    }
+  ]
 }
