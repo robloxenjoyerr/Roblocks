@@ -4,11 +4,13 @@ using Roblocks.Models.Dtos;
 
 namespace Roblocks.Controllers;
 
-public class Users:ApiBaseController
+public class UsersController:ApiBaseController
 {
     private readonly List<User> users = [];
 
     [HttpPost]
+    [ProducesResponseType<User>(StatusCodes.Status200OK)]
+    [ProducesResponseType<string>(StatusCodes.Status400BadRequest)]
     public  IActionResult CreateUserDto(CreateUserDto user)
     {
         if (users.Any(u => u.Email == user.Email))
@@ -29,6 +31,8 @@ public class Users:ApiBaseController
     }
 
     [HttpGet("{username}/friends")]
+    [ProducesResponseType<string[]>(StatusCodes.Status200OK)]
+    [ProducesResponseType<string>(StatusCodes.Status404NotFound)]
     public IActionResult GetFriends([FromRoute] string username)
     {
         var user = users.FirstOrDefault(u => u.Username == username);
@@ -37,6 +41,6 @@ public class Users:ApiBaseController
             return NotFound("There is no user with the given username");
         }
 
-        return Ok(user);
+        return Ok(user.Friends.Select(userDto => userDto.Username));
     }
 }

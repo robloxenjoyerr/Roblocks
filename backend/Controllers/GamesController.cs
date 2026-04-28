@@ -50,6 +50,8 @@ private static readonly string[] Games={
 
     
     [HttpGet("{index}")]
+    [ProducesResponseType<string>(StatusCodes.Status200OK)]
+    [ProducesResponseType<string>(StatusCodes.Status404NotFound)]
     public IActionResult Get(int index)
     {
         const int RESPONSES_PER_PAGE = 20;
