@@ -2,9 +2,7 @@
 
 namespace Roblocks.Controllers;
 
-[ApiController]
-[Route("[controller]")]
-public class GamesController:ControllerBase
+public class GamesController:ApiBaseController
 {
     
 private static readonly string[] Games={
