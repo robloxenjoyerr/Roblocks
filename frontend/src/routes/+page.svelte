@@ -1,8 +1,9 @@
 <script lang="ts">
 	import Button from '../components/Button.svelte';
 	import { onMount } from 'svelte';
+	import GamesMapper from '../components/GamesMapper.svelte';
 
-	const url = 'localhost:5173/api/v1/games';
+	const url = 'http://localhost:5147/api/v1/games';
 	type Game = {
 		id: number;
 		name: string;
@@ -22,6 +23,19 @@
 			console.error(err);
 		}
 	});
+
+	async function fetchInsertDemoGames(){
+		try{
+			const res = await fetch(`${url}/insertDemoGames`)
+
+			if(res.ok){
+				console.log(res)
+			}
+		}
+		catch(err){
+			console.error(err)
+		}
+	}
 </script>
 
 <div class="flex h-screen overflow-hidden bg-gray-200 text-[14px] text-gray-900">
@@ -84,33 +98,8 @@
 			</section>
 
 			<!-- GAMES -->
-			<section>
-				<div class="mb-4 flex items-center justify-between">
-					<h2 class="text-xl font-bold">Featured Games</h2>
-					<span class="cursor-pointer text-sm text-fuchsia-500">See All →</span>
-				</div>
-
-				<div class="grid grid-cols-2 gap-5 md:grid-cols-4 xl:grid-cols-6">
-					{#each games as game (game.id)}
-						<a
-							href="/games/{game.id}"
-							class="overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-lg"
-						>
-							<div class="h-36 bg-gray-200">
-								<img
-									src={game.imageUrl}
-									class="h-full w-full object-cover transition hover:scale-105"
-								/>
-							</div>
-
-							<div class="p-3">
-								<h4 class="truncate text-sm font-semibold">{game.name}</h4>
-								<p class="text-xs text-gray-500">{game.players} playing</p>
-							</div>
-						</a>
-					{/each}
-				</div>
-			</section>
+			<GamesMapper games={games} label="Last played"/>
+			<Button onClick={fetchInsertDemoGames} label="insertDemoGames"/>
 		</main>
 	</div>
 </div>

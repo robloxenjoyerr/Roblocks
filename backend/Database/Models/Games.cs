@@ -9,4 +9,5 @@ public class Games
     public DateTime ReleaseDate { get; set; }
     public string Publisher { get; set; }
     public string GameImage { get; set; }
+    public int LivePlayers { get; set; }
 }

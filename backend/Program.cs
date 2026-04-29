@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using MySqlConnector;
 using Roblocks.Config;
 using Roblocks.Database;
+using Roblocks.Database.services.gamesServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,19 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+builder.Services.AddScoped<GamesService>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -25,9 +40,8 @@ using (var scope = app.Services.CreateScope())
     dbContext.Database.Migrate();
     Console.WriteLine("Migrations applied");
     
-    
 }
-
+Console.WriteLine(appConfig.Database.ConnectionString);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -35,6 +49,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowFrontend");
 
 app.UseAuthorization();
 

@@ -1,68 +1,39 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Runtime.InteropServices.JavaScript;
+using Microsoft.AspNetCore.Mvc;
+using Roblocks.Models.Dtos;
+using Roblocks.Database.services;
+using Roblocks.Database.services.gamesServices;
 
 namespace Roblocks.Controllers;
 
 public class GamesController:ApiBaseController
 {
-    
-private static readonly string[] Games={
-    "Adopt Me!",
-    "Arsenal",
-    "Bee Swarm Simulator",
-    "Brookhaven RP",
-    "Doors",
-    "Dress to Impress",
-    "Epic Minigames",
-    "Flee the Facility",
-    "Frontlines",
-    "Grow a Garden",
-    "Hide and Seek Extreme",
-    "Jailbreak",
-    "MeepCity",
-    "The Mimic",
-    "Murder Mystery 2",
-    "Natural Disaster Survival",
-    "Pet Simulator 99!",
-    "Phantom Forces",
-    "Piggy",
-    "Rainbow Friends",
-    "Royale High",
-    "Scuba Diving at Quill Lake",
-    "SharkBite",
-    "Speed Run 4",
-    "Theme Park Tycoon 2",
-    "Tower of Hell",
-    "Welcome to Bloxburg",
-    "Work at a Pizza Place",
-    "Blox Fruits",
-    "BedWars",
-    "World // Zero",
-    "Tower Defense Simulator",
-    "Blade Ball",
-    "The Strongest Battlegrounds",
-    "Evade",
-    "PLS DONATE",
-    "King Legacy",
-    "Build A Boat For Treasure",
-    "Anime Vanguards",
-    "Sonic Speed Simulator"
-};
+    private readonly GamesService _gamesService;
 
-    
+    public GamesController(GamesService gamesService)
+    {
+        _gamesService = gamesService;
+    }
+
     [HttpGet("{index}")]
     [ProducesResponseType<string>(StatusCodes.Status200OK)]
     [ProducesResponseType<string>(StatusCodes.Status404NotFound)]
-    public IActionResult Get(int index)
+    public async Task<IActionResult> GetGames(int index = 0, int maxGamesPerIndex = 20, string filterByTag = "", string filterByDeveloper = "", string filterByPlayers = "")
     {
-        const int RESPONSES_PER_PAGE = 20;
-        var firstResponseValue=RESPONSES_PER_PAGE*index;
-        var lastResponseValue = firstResponseValue + RESPONSES_PER_PAGE;
+        var games = await GetGames(index);
+
         
-        if (lastResponseValue > Games.Length)
-        {
-            return NotFound("There are not enough games.");
-        }
-        return Ok(Games[firstResponseValue..lastResponseValue]);
+        return Ok(games);
     }
-    
+
+    [HttpGet("insertDemoGames")]
+    [ProducesResponseType<int>(StatusCodes.Status200OK)]
+    [ProducesResponseType<int>(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetInsertDemoGames()
+    {
+        Console.WriteLine("Inserting demo games now..");
+        var success = await _gamesService.insertDemoGames();
+        Console.WriteLine($"Inserted {success} demo games");
+        return Ok(success);
+    }
 }
