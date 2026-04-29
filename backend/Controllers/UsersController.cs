@@ -4,7 +4,8 @@ using Roblocks.Models.Dtos;
 
 namespace Roblocks.Controllers;
 
-public class UsersController:ApiBaseController
+[Route("api/v1/[controller]")]
+public class UsersController: ControllerBase
 {
     private readonly List<User> users = [];
 

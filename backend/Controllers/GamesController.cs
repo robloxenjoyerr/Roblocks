@@ -6,7 +6,8 @@ using Roblocks.Database.services.gamesServices;
 
 namespace Roblocks.Controllers;
 
-public class GamesController:ApiBaseController
+[Route("api/v1/[controller]")]
+public class GamesController: ControllerBase
 {
     private readonly GamesService _gamesService;
 
@@ -20,7 +21,7 @@ public class GamesController:ApiBaseController
     [ProducesResponseType<string>(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetGames(int index = 0, int maxGamesPerIndex = 20, string filterByTag = "", string filterByDeveloper = "", string filterByPlayers = "")
     {
-        var games = await GetGames(index);
+        var games = await _gamesService.GetGamesFromDb();
 
         
         return Ok(games);

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '../components/Button.svelte';
+	import Button from '../lib/components/Button.svelte';
 	import { onMount } from 'svelte';
-	import GamesMapper from '../components/GamesMapper.svelte';
+	import GamesMapper from '../lib/components/GamesMapper.svelte';
 
 	const url = 'http://localhost:5147/api/v1/games';
 	type Game = {
@@ -11,14 +11,15 @@
 		players: string;
 	};
 
-	let games: Game[] = [];
+	let games: Game[] = $state([]);
 
 	onMount(async () => {
 		try {
-			const res = await fetch(url);
+			const res = await fetch(`${url}/1`);
 			const data = await res.json();
 
-			games = data;
+			games = [...games, ...data]
+			console.log(games)
 		} catch (err) {
 			console.error(err);
 		}
@@ -98,8 +99,10 @@
 			</section>
 
 			<!-- GAMES -->
-			<GamesMapper games={games} label="Last played"/>
-			<Button onClick={fetchInsertDemoGames} label="insertDemoGames"/>
-		</main>
+
+			<GamesMapper games={null} label="Last Played"/>
+			<GamesMapper games={games} label="Popular Games"/>
+			<Button onClick={fetchInsertDemoGames} label="insertDemoGames"/> 
+ 		</main>
 	</div>
 </div>

@@ -41,15 +41,15 @@ using (var scope = app.Services.CreateScope())
     Console.WriteLine("Migrations applied");
     
 }
-Console.WriteLine(appConfig.Database.ConnectionString);
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
+Console.WriteLine(appConfig.Database.ConnectionString);
+// Configure the HTTP request pipeline.
 app.UseCors("AllowFrontend");
 
 app.UseAuthorization();

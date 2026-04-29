@@ -5,7 +5,8 @@
 		style?: string;
 	};
 
-	let { label = 'Undefined', games = null, style = '' }: Props = $props();
+	let { label = 'Undefined', games = [], style = '' }: Props = $props();
+
 </script>
 
 <section class="flex w-full flex-col gap-2">
@@ -14,7 +15,8 @@
 		<span class="cursor-pointer text-sm text-fuchsia-500">See All →</span>
 	</div>
 	<div class={`grid grid-cols-2 gap-5 md:grid-cols-4 xl:grid-cols-6 ${style}`}>
-		
+		{#if games?.length}
+			{console.log(games)}
 			{#each games as game (game.id)}
 				<a
 					href="/games/{game.id}"
@@ -23,7 +25,7 @@
 					<div class="h-36 bg-gray-200">
 						<img
 							src={game.imageUrl}
-                            alt="/placeholder.png"
+							alt="/placeholder.png"
 							class="h-full w-full object-cover transition hover:scale-105"
 						/>
 					</div>
@@ -33,12 +35,9 @@
 						<p class="text-xs text-gray-500">{game.players} playing</p>
 					</div>
 				</a>
-                {:else}
-
-                <span class="text-gray-400">No last played..</span>
 			{/each}
-                
-		
-        
+		{:else}
+			<span class="text-gray-400">No last played..</span>
+		{/if}
 	</div>
 </section>

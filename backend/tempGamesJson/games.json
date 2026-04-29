@@ -1,20 +1,110 @@
 [
-  { "id": 1, "name": "Skibidi Ninja Clash", "imageUrl": "/game-icons/IMG_0799.WEBP", "players": "1.2k" },
-  { "id": 2, "name": "Zombie Rizz Arena", "imageUrl": "/game-icons/IMG_0800.WEBP", "players": "1.3k" },
-  { "id": 3, "name": "Brainrot Battle Royale", "imageUrl": "/game-icons/IMG_0801.WEBP", "players": "1.5k" },
-  { "id": 4, "name": "Sigma Drift Legends", "imageUrl": "/game-icons/IMG_0802.WEBP", "players": "1.7k" },
-  { "id": 5, "name": "Toilet Titan Wars", "imageUrl": "/game-icons/IMG_0803.WEBP", "players": "1.8k" },
-  { "id": 6, "name": "Noob Slayer X", "imageUrl": "/game-icons/IMG_0804.WEBP", "players": "2.0k" },
-  { "id": 7, "name": "Gigachad Quest", "imageUrl": "/game-icons/IMG_0805.WEBP", "players": "2.2k" },
-  { "id": 8, "name": "Ultra Instinct Memes", "imageUrl": "/game-icons/IMG_0806.WEBP", "players": "2.4k" },
-  { "id": 9, "name": "Skull Emoji Survivors", "imageUrl": "/game-icons/IMG_0807.WEBP", "players": "2.6k" },
-  { "id": 10, "name": "Dark Rizz Dungeon", "imageUrl": "/game-icons/IMG_0808.WEBP", "players": "2.8k" },
-  { "id": 11, "name": "Braincell Escape", "imageUrl": "/game-icons/IMG_0809.WEBP", "players": "3.0k" },
-  { "id": 12, "name": "Ohio Simulator X", "imageUrl": "/game-icons/IMG_0810.WEBP", "players": "3.3k" },
-  { "id": 13, "name": "Skibidi Survival Mode", "imageUrl": "/game-icons/IMG_0811.WEBP", "players": "3.6k" },
-  { "id": 14, "name": "Rizzlord Rising", "imageUrl": "/game-icons/IMG_0812.WEBP", "players": "3.9k" },
-  { "id": 15, "name": "Meme Gladiators", "imageUrl": "/game-icons/IMG_0813.WEBP", "players": "4.1k" },
-  { "id": 16, "name": "NPC Awakening", "imageUrl": "/game-icons/IMG_0814.WEBP", "players": "4.4k" },
-  { "id": 17, "name": "Sigma vs Skibidi", "imageUrl": "/game-icons/IMG_0815.WEBP", "players": "4.8k" },
-  { "id": 18, "name": "Final Brainrot Legend", "imageUrl": "/game-icons/IMG_0816.WEBP", "players": "5.0k" }
+  {
+    "Name": "Skibidi Ninja Clash",
+    "Description": "Fast-paced ninja combat in a chaotic Skibidi universe. Players battle through absurd arenas with unpredictable enemies.",
+    "ImageUrl": "/game-icons/IMG_0799.WEBP",
+    "LivePlayers": 1200
+  },
+  {
+    "Name": "Zombie Rizz Arena",
+    "Description": "Survive waves of stylish zombies in a meme-filled arena. Rizz-based power-ups decide who dominates the battlefield.",
+    "ImageUrl": "/game-icons/IMG_0800.WEBP",
+    "LivePlayers": 1300
+  },
+  {
+    "Name": "Brainrot Battle Royale",
+    "Description": "A chaotic battle royale where logic breaks down. Only the most unhinged players survive to the end.",
+    "ImageUrl": "/game-icons/IMG_0801.WEBP",
+    "LivePlayers": 1500
+  },
+  {
+    "Name": "Sigma Drift Legends",
+    "Description": "High-speed drifting competition with sigma energy. Master precision driving across neon-lit tracks.",
+    "ImageUrl": "/game-icons/IMG_0802.WEBP",
+    "LivePlayers": 1700
+  },
+  {
+    "Name": "Toilet Titan Wars",
+    "Description": "Epic war between giant toilet titans in a destroyed world. Strategy and chaos collide in every match.",
+    "ImageUrl": "/game-icons/IMG_0803.WEBP",
+    "LivePlayers": 1800
+  },
+  {
+    "Name": "Noob Slayer X",
+    "Description": "Eliminate waves of noobs in increasingly difficult levels. Upgrade your weapons and become unstoppable.",
+    "ImageUrl": "/game-icons/IMG_0804.WEBP",
+    "LivePlayers": 2000
+  },
+  {
+    "Name": "Gigachad Quest",
+    "Description": "Embark on a legendary journey as the ultimate Gigachad. Complete trials of strength, wisdom, and memes.",
+    "ImageUrl": "/game-icons/IMG_0805.WEBP",
+    "LivePlayers": 2200
+  },
+  {
+    "Name": "Ultra Instinct Memes",
+    "Description": "Enter a realm where memes evolve into battle techniques. React faster than your opponents to win.",
+    "ImageUrl": "/game-icons/IMG_0806.WEBP",
+    "LivePlayers": 2400
+  },
+  {
+    "Name": "Skull Emoji Survivors",
+    "Description": "Survive endless waves of cursed emoji creatures. Every round gets more chaotic and unpredictable.",
+    "ImageUrl": "/game-icons/IMG_0807.WEBP",
+    "LivePlayers": 2600
+  },
+  {
+    "Name": "Dark Rizz Dungeon",
+    "Description": "Explore a dark dungeon filled with mysterious rizz energy. Unlock secrets and survive deadly traps.",
+    "ImageUrl": "/game-icons/IMG_0808.WEBP",
+    "LivePlayers": 2800
+  },
+  {
+    "Name": "Braincell Escape",
+    "Description": "A puzzle escape game where your braincells are constantly tested. Think fast or get stuck forever.",
+    "ImageUrl": "/game-icons/IMG_0809.WEBP",
+    "LivePlayers": 3000
+  },
+  {
+    "Name": "Ohio Simulator X",
+    "Description": "Experience the unpredictable chaos of Ohio. Nothing makes sense, and that is exactly the point.",
+    "ImageUrl": "/game-icons/IMG_0810.WEBP",
+    "LivePlayers": 3300
+  },
+  {
+    "Name": "Skibidi Survival Mode",
+    "Description": "Survive endless Skibidi waves in extreme conditions. Only the fastest reflexes will keep you alive.",
+    "ImageUrl": "/game-icons/IMG_0811.WEBP",
+    "LivePlayers": 3600
+  },
+  {
+    "Name": "Rizzlord Rising",
+    "Description": "Rise to become the ultimate Rizzlord. Conquer challenges and build your legendary reputation.",
+    "ImageUrl": "/game-icons/IMG_0812.WEBP",
+    "LivePlayers": 3900
+  },
+  {
+    "Name": "Meme Gladiators",
+    "Description": "Fight as a gladiator powered by pure meme energy. Victory depends on humor and timing.",
+    "ImageUrl": "/game-icons/IMG_0813.WEBP",
+    "LivePlayers": 4100
+  },
+  {
+    "Name": "NPC Awakening",
+    "Description": "NPCs are breaking their scripts and gaining awareness. Chaos spreads across the simulation world.",
+    "ImageUrl": "/game-icons/IMG_0814.WEBP",
+    "LivePlayers": 4400
+  },
+  {
+    "Name": "Sigma vs Skibidi",
+    "Description": "Epic showdown between Sigma warriors and Skibidi forces. Only one ideology will dominate.",
+    "ImageUrl": "/game-icons/IMG_0815.WEBP",
+    "LivePlayers": 4800
+  },
+  {
+    "Name": "Final Brainrot Legend",
+    "Description": "The ultimate test of brainrot survival. Only the most chaotic legend will reach the end.",
+    "ImageUrl": "/game-icons/IMG_0816.WEBP",
+    "LivePlayers": 5000
+  }
 ]

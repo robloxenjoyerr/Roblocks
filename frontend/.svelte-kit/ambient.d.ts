@@ -51,11 +51,9 @@ declare module '$env/static/private' {
 	export const DialogBoxXMLFile: string;
 	export const DriverData: string;
 	export const EDITOR: string;
-	export const EFC_3948_1262719628: string;
 	export const EFC_3948_1592913036: string;
-	export const EFC_3948_2283032206: string;
-	export const EFC_3948_2775293581: string;
-	export const EFC_3948_3789132940: string;
+	export const FPS_BROWSER_APP_PROFILE_STRING: string;
+	export const FPS_BROWSER_USER_PROFILE_STRING: string;
 	export const GIT_ASKPASS: string;
 	export const GIT_GLOBAL_CONFIG: string;
 	export const GPOTestVar: string;
@@ -247,11 +245,9 @@ declare module '$env/dynamic/private' {
 		DialogBoxXMLFile: string;
 		DriverData: string;
 		EDITOR: string;
-		EFC_3948_1262719628: string;
 		EFC_3948_1592913036: string;
-		EFC_3948_2283032206: string;
-		EFC_3948_2775293581: string;
-		EFC_3948_3789132940: string;
+		FPS_BROWSER_APP_PROFILE_STRING: string;
+		FPS_BROWSER_USER_PROFILE_STRING: string;
 		GIT_ASKPASS: string;
 		GIT_GLOBAL_CONFIG: string;
 		GPOTestVar: string;
