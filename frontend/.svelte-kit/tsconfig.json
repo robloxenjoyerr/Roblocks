@@ -26,9 +26,7 @@
 		"module": "esnext",
 		"noEmit": true,
 		"target": "esnext",
-		"types": [
-			"node"
-		]
+	
 	},
 	"include": [
 		"ambient.d.ts",
