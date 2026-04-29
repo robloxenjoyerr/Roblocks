@@ -12,7 +12,7 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check .",
 		"format": "prettier --write .",
-		"update-api":"npx swagger-typescript-api generate --path http://localhost:5147/swagger/v1/swagger.json"
+		"update-api":"npx swagger-typescript-api generate --path http://localhost:5147/swagger/v1/swagger.json --output ./src/lib/services"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^7.0.1",
