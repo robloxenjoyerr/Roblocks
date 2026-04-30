@@ -6,6 +6,7 @@
 	import GamesMapper from '$lib/components/GamesMapper.svelte';
 	import { onMount } from 'svelte';
 	import BackArrow from '$lib/components/BackArrow.svelte';
+	import { api } from '$lib/services/ApiClient';
 	let { params } = page;
 
 	const url = 'http://localhost:5147/api/v1/friends';
@@ -20,8 +21,6 @@
 
 	async function getUserData(){
 		try{
-			const data = await fetch(`${url}/${userInfo.username}`)
-
 			
 		} catch(err){
 			console.error(err)

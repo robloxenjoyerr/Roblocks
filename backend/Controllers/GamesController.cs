@@ -1,19 +1,29 @@
 ﻿using System.Runtime.InteropServices.JavaScript;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Roblocks.Database.Models;
 using Roblocks.Models.Dtos;
 using Roblocks.Database.services;
 using Roblocks.Database.services.gamesServices;
+using Roblocks.Models;
 
 namespace Roblocks.Controllers;
 
 [Route("api/v1/[controller]")]
 public class GamesController: ControllerBase
 {
-    private readonly GamesService _gamesService;
+    private readonly GamesServices _gamesService;
+    private readonly Mapper _mapper;
 
-    public GamesController(GamesService gamesService)
+    public GamesController(GamesServices gamesService, Mapper mapper)
     {
+        _mapper = mapper;
         _gamesService = gamesService;
+    }
+
+    public GameDto MapToDto(Games game)
+    {
+        return _mapper.Map<GameDto>(game);
     }
 
     [HttpGet("{index}")]

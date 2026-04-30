@@ -5,6 +5,8 @@ using Roblocks.Database;
 using Roblocks.Database.services.gamesServices;
 using Microsoft.OpenApi;
 using Microsoft.OpenApi.Models;
+using Roblocks.Database.services.userServices;
+using Roblocks.MappingProfiles;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMvc();
@@ -25,7 +27,8 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-builder.Services.AddScoped<GamesService>();
+builder.Services.AddScoped<GamesServices>();
+builder.Services.AddScoped<UserServices>();
 
 builder.Services.AddCors(options =>
 {
@@ -37,6 +40,8 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
     });
 });
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 

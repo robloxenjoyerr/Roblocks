@@ -11,9 +11,10 @@
  */
 
 export interface User {
-  email?: string | null;
   username?: string | null;
+  email?: string | null;
   password?: string | null;
+  avatarUrl?: string | null;
   /** @format uuid */
   id?: string;
   friends?: User[] | null;

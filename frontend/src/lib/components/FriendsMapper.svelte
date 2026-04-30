@@ -10,13 +10,16 @@
 	function handleClick() {}
 </script>
 
-<section>
-	<SeeAll value={friends}/>
-
+<section class="flex flex-col gap-2 ">
+	
+	<div class="flex w-full justify-between">
+		<h1 class="text-xl font-bold">Friends</h1>
+		<SeeAll />
+	</div>
 	<div class="flex gap-6 overflow-x-auto pb-8">
 		{#if friends && friends.length > 1}
 			{#each friends as f, i}
-				<div class="flex min-w-[70px] flex-col items-center">
+				<div class="flex min-w-17.5 flex-col items-center">
 					<div class="relative">
 						<a class="relative block h-full w-full " title="Profile" href={`/friends/${f.username}`}>
 							<img

@@ -1,5 +1,6 @@
 
 <script lang="ts">
+	  import type { HTMLButtonAttributes } from 'svelte/elements';
 
 	let {
 		label = 'Button',
@@ -9,7 +10,7 @@
 		style = '',
 		href = "",
 		onClick = () => {},
-		
+		...other
 	}: {
 		label?: string;
 		iconUrl?: string;
@@ -18,7 +19,7 @@
 		style?: string;
 		href?: string;
 		onClick?: (e: MouseEvent) => void;
-	} = $props();
+	} & HTMLButtonAttributes = $props();
 
 	function handleClick(event: MouseEvent) {
 		onClick(event);
@@ -28,7 +29,7 @@
 {#if href}
 	<a href={href}>
 		<button
-			
+			{...other}
 			class={`flex h-fit gap-4 rounded-2xl p-3 text-center font-bold uppercase hover:bg-black/20 active:bg-black/30 ${style}`}
 		>
 			{#if iconFirst && iconUrl}

@@ -5,12 +5,8 @@
 	import Input from '../../../../lib/components/Input.svelte';
 	import Sidebar from '../../../../lib/components/Sidebar.svelte';
 
-
-	
-
-	const userinfo = {};
-
     type Message={
+		id: string,
         message: string,
         sender: string
     }
@@ -23,7 +19,7 @@
         if(!message.trim()) return
 
         console.log("Sending: ", message)
-        chatHistory.push({message: message, sender: "user"})
+        chatHistory.push()
         message = ""
     }
 </script>
@@ -33,12 +29,17 @@
 	<div class="flex flex-1 flex-col">
 		<Header />
 
-		<BackArrow />
+		
+		<section class="flex h-full flex-col space-y-8 gap-3 rounded-2xl p-8">
+			<BackArrow />
+			<div class="flex h-full w-full justify-center items-center rounded-2xl border-2 border-fuchsia-500">
+				{#if chatHistory.length > 0}
+					<p class="  animate-pulse text-black/70">Sorry, no messages yet.</p>
 
-		<section class="m-5 flex h-full flex-col gap-3 rounded-2xl bg-black/5 p-5">
-			<div class="flex h-full w-full rounded-2xl border-2 border-fuchsia-500">
-				{#if chatHistory.length > 0}{:else}
-					<span class=" animate-pulse text-black/70">Sorry, no messages yet.</span>
+				{:else}
+					{#each chatHistory as message (message.id)}
+						
+					{/each}
 				{/if}
 			</div>
 			<div class="flex w-full gap-3">

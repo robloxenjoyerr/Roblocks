@@ -6,11 +6,11 @@ using Roblocks.Database.Models;
 
 namespace Roblocks.Database.services.gamesServices;
 
-public class GamesService
+public class GamesServices
 {
     private readonly DataContext _context;
 
-    public GamesService(DataContext context)
+    public GamesServices(DataContext context)
     {
         _context = context;
     }
