@@ -12,5 +12,6 @@ public class MappingProfile : Profile
     {
         CreateMap<User, UserDto>();
         CreateMap<Game, GameDto>();
+        CreateMap<Game, GamePageDto >();
     }
 }
