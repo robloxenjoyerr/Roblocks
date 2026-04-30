@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Button from './Button.svelte';
 	import SeeAll from './SeeAll.svelte';
+	
 
 	const url = 'http://localhost:5147/api/v1/games';
 

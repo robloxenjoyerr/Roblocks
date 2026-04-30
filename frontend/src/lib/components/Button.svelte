@@ -1,3 +1,4 @@
+
 <script lang="ts">
 
 	let {
@@ -6,6 +7,7 @@
 		fileType = 'png',
 		iconFirst = true,
 		style = '',
+		href = "",
 		onClick = () => {},
 		
 	}: {
@@ -14,6 +16,7 @@
 		fileType?: string;
 		iconFirst?: boolean;
 		style?: string;
+		href?: string;
 		onClick?: (e: MouseEvent) => void;
 	} = $props();
 
@@ -22,15 +25,33 @@
 	}
 </script>
 
-<button
-	onclick={handleClick}
-	class={`flex h-fit gap-4 rounded-2xl p-3 text-center font-bold uppercase hover:bg-black/20 active:bg-black/30 ${style}`}
->
-	{#if iconFirst && iconUrl}
-		<img class="h-5 w-5 self-center" src={`/${iconUrl}.${fileType}`} alt="icon" />
-		{label}
+{#if href}
+	<a href={href}>
+		<button
+			
+			class={`flex h-fit gap-4 rounded-2xl p-3 text-center font-bold uppercase hover:bg-black/20 active:bg-black/30 ${style}`}
+		>
+			{#if iconFirst && iconUrl}
+				<img class="h-5 w-5 self-center" src={`/${iconUrl}.${fileType}`} alt="icon" />
+				{label}
+			{:else}
+				{label}
+				<img class="h-5 w-5 self-center" src={`/${iconUrl}.${fileType}`} alt="icon" />
+			{/if}
+		</button> 
+	</a>
 	{:else}
-		{label}
-		<img class="h-5 w-5 self-center" src={`/${iconUrl}.${fileType}`} alt="icon" />
-	{/if}
-</button>
+		<button
+			onclick={handleClick}
+			class={`flex h-fit gap-4 rounded-2xl p-3 text-center font-bold uppercase hover:bg-black/20 active:bg-black/30 ${style}`}
+		>
+			{#if iconFirst && iconUrl}
+				<img class="h-5 w-5 self-center" src={`/${iconUrl}.${fileType}`} alt="icon" />
+				{label}
+			{:else}
+				{label}
+				<img class="h-5 w-5 self-center" src={`/${iconUrl}.${fileType}`} alt="icon" />
+			{/if}
+		</button> 
+
+{/if}

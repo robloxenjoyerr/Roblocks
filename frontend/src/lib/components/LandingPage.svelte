@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Button from './Button.svelte';
 	import FriendsMapper from './FriendsMapper.svelte';
 	import GamesMapper from './GamesMapper.svelte';
 

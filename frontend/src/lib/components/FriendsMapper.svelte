@@ -7,8 +7,6 @@
 
 	let { friends = [] }: FriensMapperProps = $props();
 
-	console.log('FRIENDS, friendsmapper: ', friends);
-
 	function handleClick() {}
 </script>
 

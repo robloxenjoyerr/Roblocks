@@ -1,10 +1,12 @@
 <script lang="ts">
-	import BackArrow from '$lib/components/BackArrow.svelte';
-	import Button from '$lib/components/Button.svelte';
-	import GamesMapper from '$lib/components/GamesMapper.svelte';
-	import Header from '$lib/components/Header.svelte';
-	import Input from '$lib/components/Input.svelte';
-	import Sidebar from '$lib/components/Sidebar.svelte';
+	import BackArrow from '../../../../lib/components/BackArrow.svelte';
+	import Button from '../../../../lib/components/Button.svelte';
+	import Header from '../../../../lib/components/Header.svelte';
+	import Input from '../../../../lib/components/Input.svelte';
+	import Sidebar from '../../../../lib/components/Sidebar.svelte';
+
+
+	
 
 	const userinfo = {};
 

@@ -16,6 +16,7 @@
 
 <div class="">
 	<button
+		
 		onclick={handleClick}
 		class={`${value.length === 0 || value === null || disabled ? 'cursor-not-allowed text-gray-400' : 'cursor-pointer text-fuchsia-500'}  text-sm text-fuchsia-500`}
 		>See All →</button

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Button from '../lib/components/Button.svelte';
 	import { onMount } from 'svelte';
 	import GamesMapper from '../lib/components/GamesMapper.svelte';
-	import LandingPage from '$lib/components/LandingPage.svelte';
-	import GamePage from '$lib/components/GamePage.svelte';
-	import Header from '$lib/components/Header.svelte';
-	import Sidebar from '$lib/components/Sidebar.svelte';
+	import Sidebar from '../lib/components/Sidebar.svelte';
+	import Header from '../lib/components/Header.svelte';
+	import LandingPage from '../lib/components/LandingPage.svelte';
+	import GamePage from '../lib/components/GamePage.svelte';
+	
 
 	let contentState = $state('landingPage');
 	
