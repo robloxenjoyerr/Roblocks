@@ -38,6 +38,20 @@ public class GamesController: ControllerBase
         return Ok(games);
     }
 
+    [HttpGet("GamePage/{gameName}")]
+    [ProducesResponseType<string>(StatusCodes.Status200OK)]
+    [ProducesResponseType<string>(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetGamePageInfo(string gameName)
+    {
+        var gamePageInfos = await _gamesService.GetGamePageInfos(gameName);
+
+       if (gamePageInfos != null)
+       {
+        return Ok(gamePageInfos);
+       } 
+       return NotFound($"Game {gameName} not found");
+    }
+    
     [HttpGet("insertDemoGames")]
     [ProducesResponseType<int>(StatusCodes.Status200OK)]
     [ProducesResponseType<int>(StatusCodes.Status404NotFound)]

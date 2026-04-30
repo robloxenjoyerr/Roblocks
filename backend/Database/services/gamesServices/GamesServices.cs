@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Roblocks.Models.Dtos;
 
 using System.Text.Json;
+using AutoMapper;
 using Roblocks.Database.Models;
 
 namespace Roblocks.Database.services.gamesServices;
@@ -9,10 +10,12 @@ namespace Roblocks.Database.services.gamesServices;
 public class GamesServices
 {
     private readonly DataContext _context;
+    private readonly IMapper _mapper;
 
-    public GamesServices(DataContext context)
+    public GamesServices(DataContext context, IMapper mapper)
     {
         _context = context;
+        _mapper = mapper;
     }
 
     public async Task<List<GameDto>> GetGamesFromDb(int index = 0, int maxGamesPerIndex = 20, string filterByTag = "", string filterByDeveloper = "", string filterByPlayers = "")
@@ -32,6 +35,13 @@ public class GamesServices
             .ToListAsync();
         Console.WriteLine(games);
         return games;
+    }
+
+    public async Task<GamePageDto> GetGamePageInfos(string gameName)
+    {
+        var game = await _context.Games
+            .FirstOrDefaultAsync(g => g.Name == gameName);
+        return _mapper.Map<GamePageDto>(game);
     }
     
     public async Task<List<GameDto>> insertDemoGames()
