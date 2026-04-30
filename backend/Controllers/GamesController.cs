@@ -13,14 +13,15 @@ namespace Roblocks.Controllers;
 public class GamesController: ControllerBase
 {
     private readonly GamesServices _gamesService;
-    private readonly Mapper _mapper;
+    private readonly IMapper _mapper;
 
-    public GamesController(GamesServices gamesService, Mapper mapper)
+    public GamesController(GamesServices gamesService, IMapper mapper)
     {
         _mapper = mapper;
         _gamesService = gamesService;
     }
 
+    [NonAction]
     public GameDto MapToDto(Games game)
     {
         return _mapper.Map<GameDto>(game);

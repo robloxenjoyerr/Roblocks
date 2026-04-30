@@ -21,7 +21,12 @@
 
 	async function getUserData(){
 		try{
-			
+			const data = await api.v1UsersDetail(userInfo.username)
+			if(data.ok){
+				console.log(data)
+
+				
+			}
 		} catch(err){
 			console.error(err)
 		}

@@ -41,12 +41,11 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddAutoMapper(typeof(Program));
+
+builder.Services.AddAutoMapper(cfg => { }, typeof(Program));
 
 var app = builder.Build();
 
-app.UseSwagger();
-app.UseSwaggerUI();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<DataContext>();
@@ -70,4 +69,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseSwagger();
+app.UseSwaggerUI();
 app.Run();
+

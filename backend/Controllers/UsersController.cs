@@ -20,6 +20,7 @@ public class UsersController: ControllerBase
         _gamesService = gamesService;
     }
 
+    [NonAction]
     private UserDto MapToDto(User user)
     {
         return _mapper.Map<UserDto>(user);
@@ -41,7 +42,7 @@ public class UsersController: ControllerBase
         try
         {
             var userInfo = await _userServices.GetUserInfo(username);
-            
+            Console.WriteLine("USER INFO --------------------");
             return Ok(_mapper.Map<IEnumerable<UserDto>>(userInfo));
         }
         catch(Exception e)

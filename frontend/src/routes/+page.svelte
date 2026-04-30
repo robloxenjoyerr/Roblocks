@@ -5,6 +5,7 @@
 	import Header from '../lib/components/Header.svelte';
 	import LandingPage from '../lib/components/LandingPage.svelte';
 	import GamePage from '../lib/components/GamePage.svelte';
+	import { api } from '$lib/services/ApiClient';
 	
 
 	let contentState = $state('landingPage');
@@ -37,15 +38,14 @@
 		name: string;
 		imageUrl: string;
 		players: string;
-	};
+	} | String;
 
 	let games: Game[] = $state([]);
 
 	onMount(async () => {
 		try {
-			const res = await fetch(`${url}/1`);
-			const data = await res.json();
-
+			const res = await api.v1GamesDetail(0)
+			const data = res.data
 			games = [...games, ...data];
 			console.log(games);
 		} catch (err) {

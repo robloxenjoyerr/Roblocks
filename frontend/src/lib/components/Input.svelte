@@ -13,5 +13,5 @@
     {...others}
     bind:value
 	class={` rounded-full border border-gray-300 bg-gray-50 px-4 py-1.5 text-sm focus:border-fuchsia-400 focus:outline-none ${style}`}
-	placeholder={label}
+
 />

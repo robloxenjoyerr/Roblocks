@@ -11,13 +11,30 @@
  */
 
 export interface User {
+  /** @format uuid */
+  id?: string;
   username?: string | null;
   email?: string | null;
   password?: string | null;
   avatarUrl?: string | null;
-  /** @format uuid */
-  id?: string;
   friends?: User[] | null;
+  currentlyPlaying?: string | null;
+  gamesPlayed?: string | null;
+  lastPlayed?: string | null;
+  /** @format float */
+  hours?: number;
+  favorites?: string | null;
+}
+
+export interface UserDto {
+  username?: string | null;
+  currentlyPlaying?: string | null;
+  gamesPlayed?: string | null;
+  lastPlayed?: string | null;
+  /** @format float */
+  hours?: number;
+  favorites?: string | null;
+  avatarUrl?: string | null;
 }
 
 export type QueryParamsType = Record<string | number, any>;
@@ -349,6 +366,21 @@ export class Api<
         path: `/api/v1/Users`,
         method: "POST",
         query: query,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users
+     * @name V1UsersDetail
+     * @request GET:/api/v1/Users/{username}
+     */
+    v1UsersDetail: (username: string, params: RequestParams = {}) =>
+      this.request<UserDto[], UserDto[]>({
+        path: `/api/v1/Users/${username}`,
+        method: "GET",
         format: "json",
         ...params,
       }),
