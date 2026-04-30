@@ -37,7 +37,7 @@ public class GamesServices
         return games;
     }
 
-    public async Task<GamePageDto> GetGamePageInfos(string gameName)
+    public async Task<GamePageDto?> GetGamePageInfos(string gameName)
     {
         var game = await _context.Games
             .FirstOrDefaultAsync(g => g.Name == gameName);
