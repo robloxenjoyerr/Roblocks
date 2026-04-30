@@ -44,30 +44,30 @@ public class GamesServices
         return _mapper.Map<GamePageDto>(game);
     }
     
-    public async Task<List<GameDto>> insertDemoGames()
+    public async Task InsertDemoGames()
     {
         var json = await File.ReadAllTextAsync(Path.GetFullPath("./tempGamesJson/games.json"));
         Console.WriteLine($"JSON: {json}");
         var demoGames = JsonSerializer.Deserialize<List<GameDto>>(json);
-        Console.WriteLine($"DEMOGAMES:");
-        foreach (var g in demoGames)
+        if (demoGames is null)
         {
-            Console.WriteLine($"{g.Name} - {g.Description} - {g.Id} - {g.LivePlayers}");
+            throw new Exception("No Games Found in games.json");
         }
-        var entities = demoGames.Select(g => new Games
-        {
-            
-            Name = g.Name,
-            LivePlayers = g.LivePlayers,
-            Description = g.Description,
-            ImageUrl = g.ImageUrl,
-            
-    
-        }).ToList();
+        var entities = demoGames.Select(g => new Game
+            {
+                Name = g.Name,
+                Description = g.Description,
+                Publisher = "Demo Publisher",
+                ImageUrl = g.ImageUrl,
+                LivePlayers = g.LivePlayers,
+                Likes = 1234,
+                Dislikes = 0,
+                LeaderBoard = "No Leaderboard",
+                ReleaseDate = DateTime.Now,
+            }).ToList();
         
-        _context.Games.AddRange(entities);
+        await _context.Games.AddRangeAsync(entities);
         await _context.SaveChangesAsync();
 
-        return demoGames;
     }
 }
