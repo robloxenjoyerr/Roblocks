@@ -10,14 +10,40 @@
  * ---------------------------------------------------------------
  */
 
+/** @format int32 */
+export enum FriendshipStatus {
+  Value0 = 0,
+  Value1 = 1,
+  Value2 = 2,
+}
+
+export interface CreateUserDto {
+  username?: string | null;
+  email?: string | null;
+  password?: string | null;
+}
+
+export interface Friendship {
+  /** @format uuid */
+  id?: string;
+  /** @format uuid */
+  requesterId?: string;
+  requester?: User;
+  /** @format uuid */
+  receiverId?: string;
+  receiver?: User;
+  status?: FriendshipStatus;
+}
+
 export interface User {
   /** @format uuid */
   id?: string;
   username?: string | null;
   email?: string | null;
-  password?: string | null;
+  hashedPassword?: string | null;
   avatarUrl?: string | null;
-  friends?: User[] | null;
+  friendshipsInitiated?: Friendship[] | null;
+  friendshipsReceived?: Friendship[] | null;
   currentlyPlaying?: string | null;
   gamesPlayed?: string | null;
   lastPlayed?: string | null;
@@ -299,6 +325,24 @@ export class HttpClient<SecurityDataType = unknown> {
 export class Api<
   SecurityDataType extends unknown,
 > extends HttpClient<SecurityDataType> {
+  register = {
+    /**
+     * No description
+     *
+     * @tags Auth
+     * @name RegisterCreate
+     * @request POST:/register
+     */
+    registerCreate: (data: CreateUserDto, params: RequestParams = {}) =>
+      this.request<User, string>({
+        path: `/register`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
   api = {
     /**
      * No description
@@ -351,29 +395,6 @@ export class Api<
      * No description
      *
      * @tags Users
-     * @name V1UsersCreate
-     * @request POST:/api/v1/Users
-     */
-    v1UsersCreate: (
-      query?: {
-        Email?: string;
-        Username?: string;
-        Password?: string;
-      },
-      params: RequestParams = {},
-    ) =>
-      this.request<User, string>({
-        path: `/api/v1/Users`,
-        method: "POST",
-        query: query,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @tags Users
      * @name V1UsersDetail
      * @request GET:/api/v1/Users/{username}
      */
@@ -397,6 +418,57 @@ export class Api<
         path: `/api/v1/Users/${username}/friends`,
         method: "GET",
         format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users
+     * @name V1UsersFriendRequestCreate
+     * @request POST:/api/v1/Users/friend-request/{receiverUsername}
+     */
+    v1UsersFriendRequestCreate: (
+      receiverUsername: string,
+      params: RequestParams = {},
+    ) =>
+      this.request<void, any>({
+        path: `/api/v1/Users/friend-request/${receiverUsername}`,
+        method: "POST",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users
+     * @name V1UsersFriendRequestAcceptUpdate
+     * @request PUT:/api/v1/Users/friend-request/{friendshipId}/accept
+     */
+    v1UsersFriendRequestAcceptUpdate: (
+      friendshipId: string,
+      params: RequestParams = {},
+    ) =>
+      this.request<void, any>({
+        path: `/api/v1/Users/friend-request/${friendshipId}/accept`,
+        method: "PUT",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Users
+     * @name V1UsersFriendRequestDeclineUpdate
+     * @request PUT:/api/v1/Users/friend-request/{friendshipId}/decline
+     */
+    v1UsersFriendRequestDeclineUpdate: (
+      friendshipId: string,
+      params: RequestParams = {},
+    ) =>
+      this.request<void, any>({
+        path: `/api/v1/Users/friend-request/${friendshipId}/decline`,
+        method: "PUT",
         ...params,
       }),
   };

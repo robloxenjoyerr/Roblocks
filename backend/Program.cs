@@ -1,4 +1,7 @@
+using System.Text;
+using System.Threading.RateLimiting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MySqlConnector;
 using Roblocks.Config;
 using Roblocks.Database;
@@ -7,6 +10,9 @@ using Microsoft.OpenApi;
 using Microsoft.OpenApi.Models;
 using Roblocks.Database.services.userServices;
 using Roblocks.MappingProfiles;
+using Microsoft.AspNetCore.RateLimiting;
+using Microsoft.IdentityModel.Tokens;
+using Roblocks.Database.services.AuthServices;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMvc();
@@ -29,6 +35,21 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<GamesServices>();
 builder.Services.AddScoped<UserServices>();
+builder.Services.AddScoped<AuthServices>();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["JWT_SECRET"]!)
+            ),
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
 
 builder.Services.AddCors(options =>
 {
@@ -41,8 +62,30 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddRateLimiter(options =>
+{
+    options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            partitionKey: httpContext.User.Identity?.Name ?? httpContext.Request.Headers.Host.ToString(),
+            factory: partition => new FixedWindowRateLimiterOptions
+            {
+                AutoReplenishment = true,
+                PermitLimit = 10,
+                QueueLimit = 0,
+                Window = TimeSpan.FromMinutes(1)
+            }));
+
+    options.AddFixedWindowLimiter("strict", opt =>
+    {
+        opt.AutoReplenishment = true;
+        opt.PermitLimit = 3;
+        opt.QueueLimit = 0;
+        opt.Window = TimeSpan.FromMinutes(1);
+    });
+});
 
 builder.Services.AddAutoMapper(cfg => { }, typeof(Program));
+builder.Services.AddScoped<IAuthService, AuthServices>();
 
 var app = builder.Build();
 
@@ -64,11 +107,10 @@ if (app.Environment.IsDevelopment())
 Console.WriteLine(appConfig.Database.ConnectionString);
 // Configure the HTTP request pipeline.
 app.UseCors("AllowFrontend");
-
+app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseRateLimiter();
 app.MapControllers();
-
 app.UseSwagger();
 app.UseSwaggerUI();
 app.Run();

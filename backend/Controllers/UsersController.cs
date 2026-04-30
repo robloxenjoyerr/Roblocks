@@ -4,7 +4,8 @@ using Roblocks.Models;
 using Roblocks.Models.Dtos;
 using AutoMapper;
 using Roblocks.Database.services.userServices;
-
+using Microsoft.AspNetCore.RateLimiting;
+using JWT;
 namespace Roblocks.Controllers;
 
 [Route("api/v1/[controller]")]
@@ -24,15 +25,10 @@ public class UsersController: ControllerBase
     private UserDto MapToDto(User user)
     {
         return _mapper.Map<UserDto>(user);
+        
     }
     
-    [HttpPost]
-    [ProducesResponseType<User>(StatusCodes.Status200OK)]
-    [ProducesResponseType<string>(StatusCodes.Status400BadRequest)]
-    public  IActionResult CreateUserDto(CreateUserDto user)
-    {
-       return Ok("");
-    }
+
 
     // Get single user info
     [HttpGet("{username}")]
@@ -58,5 +54,27 @@ public class UsersController: ControllerBase
     public IActionResult GetFriends([FromRoute] string username)
     {
         return Ok("");
+    }
+    
+    [HttpPost("friend-request/{receiverUsername}")]
+    public async Task<IActionResult> SendRequest(string receiverUsername)
+    {
+        
+        return null;
+    }
+
+// Anfrage annehmen
+    [HttpPut("friend-request/{friendshipId}/accept")]
+    public async Task<IActionResult> AcceptRequest(Guid friendshipId)
+    {
+        return null;
+    }
+
+// Anfrage ablehnen
+    [HttpPut("friend-request/{friendshipId}/decline")]
+    public async Task<IActionResult> DeclineRequest(Guid friendshipId)
+    {
+        
+        return null;
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Roblocks.Database;
 
@@ -11,9 +12,11 @@ using Roblocks.Database;
 namespace Roblocks.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20260430112418_addUserFriends")]
+    partial class addUserFriends
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,30 +70,6 @@ namespace Roblocks.Migrations
                     b.ToTable("Games");
                 });
 
-            modelBuilder.Entity("Roblocks.Models.Friendship", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("ReceiverId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("RequesterId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ReceiverId");
-
-                    b.HasIndex("RequesterId");
-
-                    b.ToTable("Friendships");
-                });
-
             modelBuilder.Entity("Roblocks.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -124,6 +103,9 @@ namespace Roblocks.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("char(36)");
+
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -134,33 +116,21 @@ namespace Roblocks.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("Roblocks.Models.Friendship", b =>
-                {
-                    b.HasOne("Roblocks.Models.User", "Receiver")
-                        .WithMany("FriendshipsReceived")
-                        .HasForeignKey("ReceiverId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Roblocks.Models.User", "Requester")
-                        .WithMany("FriendshipsInitiated")
-                        .HasForeignKey("RequesterId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Receiver");
-
-                    b.Navigation("Requester");
                 });
 
             modelBuilder.Entity("Roblocks.Models.User", b =>
                 {
-                    b.Navigation("FriendshipsInitiated");
+                    b.HasOne("Roblocks.Models.User", null)
+                        .WithMany("Friends")
+                        .HasForeignKey("UserId");
+                });
 
-                    b.Navigation("FriendshipsReceived");
+            modelBuilder.Entity("Roblocks.Models.User", b =>
+                {
+                    b.Navigation("Friends");
                 });
 #pragma warning restore 612, 618
         }

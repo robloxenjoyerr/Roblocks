@@ -1,5 +1,32 @@
 <script lang="ts">
 	import Input from '$lib/components/Input.svelte';
+	import { api } from '$lib/services/ApiClient';
+	import { redirect } from '@sveltejs/kit';
+	import { preventDefault } from 'svelte/legacy';
+
+	let usernameState = $state("")
+	let emailState = $state("")
+	let passwordState = $state("")
+
+	async function handleSubmit(){
+		const newUser = {
+			username: usernameState,
+			email: emailState,
+			password: passwordState
+		}
+
+		try{
+			const res = await api.
+
+			
+			if(res.ok){
+				redirect(200 , "/")
+			}
+		} catch(err) {console.error(err)}
+
+
+	}
+
 </script>
 
 <div class="relative flex flex-col h-screen overflow-hidden bg-gray-200 text-[14px] text-gray-900">
@@ -87,21 +114,21 @@
 				</div>
 
 				<!-- Form -->
-				<form class="flex flex-col gap-3">
+				<form onsubmit={(e)=> {e.preventDefault(); handleSubmit()}} class="flex flex-col gap-3">
 					<div class="flex flex-col gap-1">
 						<label for="username" class="text-xs text-gray-500">Username</label>
-						<Input required id="username" placeholder="Tung tung tung Sahur" />
+						<Input bind:value={usernameState} required id="username" placeholder="Tung tung tung Sahur" />
 					</div>
 					<div class="flex flex-col gap-1">
 						<label for="email" class="text-xs text-gray-500">E-Mail</label>
-						<Input type="email" required id="email" placeholder="tung@sahur.sigma" />
+						<Input bind:value={emailState} type="email" required id="email" placeholder="tung@sahur.sigma" />
 					</div>
 					<div class="flex flex-col gap-1">
 						<div class="flex items-center justify-between">
 							<label for="password" class="text-xs text-gray-500">Password</label>
 							
 						</div>
-						<Input type="password" required id="password" placeholder="password" />
+						<Input bind:value={passwordState} type="password" required id="password" placeholder="password" />
 					</div>
 					<div class="flex flex-col gap-1">
 						<div class="flex items-center justify-between">
