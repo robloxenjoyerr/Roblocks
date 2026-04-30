@@ -7,7 +7,7 @@ namespace Roblocks.Database;
 
 public class DataContext : DbContext
 {
-    public DbSet<Games> Games { get; set; }
+    public DbSet<Game> Games { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<Friendship> Friendships { get; set; }
     public DataContext(DbContextOptions<DataContext> options) : base(options){}

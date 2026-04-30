@@ -380,13 +380,28 @@ export class Api<
      * No description
      *
      * @tags Games
-     * @name V1GamesInsertDemoGamesList
-     * @request GET:/api/v1/Games/insertDemoGames
+     * @name V1GamesGamePageDetail
+     * @request GET:/api/v1/Games/GamePage/{gameName}
      */
-    v1GamesInsertDemoGamesList: (params: RequestParams = {}) =>
+    v1GamesGamePageDetail: (gameName: string, params: RequestParams = {}) =>
+      this.request<string, string>({
+        path: `/api/v1/Games/GamePage/${gameName}`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Games
+     * @name V1GamesInsertDemoGamesCreate
+     * @request POST:/api/v1/Games/insertDemoGames
+     */
+    v1GamesInsertDemoGamesCreate: (params: RequestParams = {}) =>
       this.request<number, number>({
         path: `/api/v1/Games/insertDemoGames`,
-        method: "GET",
+        method: "POST",
         format: "json",
         ...params,
       }),

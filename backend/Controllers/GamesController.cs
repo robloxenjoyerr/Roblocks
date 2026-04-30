@@ -22,7 +22,7 @@ public class GamesController: ControllerBase
     }
 
     [NonAction]
-    public GameDto MapToDto(Games game)
+    public GameDto MapToDto(Game game)
     {
         return _mapper.Map<GameDto>(game);
     }
@@ -38,14 +38,34 @@ public class GamesController: ControllerBase
         return Ok(games);
     }
 
-    [HttpGet("insertDemoGames")]
+    [HttpGet("GamePage/{gameName}")]
+    [ProducesResponseType<string>(StatusCodes.Status200OK)]
+    [ProducesResponseType<string>(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetGamePageInfo(string gameName)
+    {
+        var gamePageInfos = await _gamesService.GetGamePageInfos(gameName);
+
+       if (gamePageInfos != null)
+       {
+        return Ok(gamePageInfos);
+       } 
+       return NotFound($"Game {gameName} not found");
+    }
+    
+    [HttpPost("insertDemoGames")]
     [ProducesResponseType<int>(StatusCodes.Status200OK)]
     [ProducesResponseType<int>(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetInsertDemoGames()
     {
-        Console.WriteLine("Inserting demo games now..");
-        var success = await _gamesService.insertDemoGames();
-        Console.WriteLine($"Inserted {success} demo games");
-        return Ok(success);
+        try
+        {
+         await _gamesService.InsertDemoGames();
+         return Ok();
+
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 }

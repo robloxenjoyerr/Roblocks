@@ -1,7 +1,7 @@
 namespace Roblocks.Database.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-public class Games
+public class Game
 {
     [Key] public int Id { get; set; }
     public string Name { get; set; }
@@ -9,8 +9,8 @@ public class Games
     public string Publisher { get; set; }
     public string ImageUrl { get; set; }
     public int LivePlayers { get; set; }
-    public int likes { get; set; }
-    public int dislikes { get; set; }
-    public string leaderBoard { get; set; }
+    public int Likes { get; set; }
+    public int Dislikes { get; set; }
+    public string LeaderBoard { get; set; }
     public DateTime ReleaseDate { get; set; }
 }
