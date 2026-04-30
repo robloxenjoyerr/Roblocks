@@ -13,14 +13,15 @@ namespace Roblocks.Controllers;
 public class GamesController: ControllerBase
 {
     private readonly GamesServices _gamesService;
-    private readonly Mapper _mapper;
+    private readonly IMapper _mapper;
 
-    public GamesController(GamesServices gamesService, Mapper mapper)
+    public GamesController(GamesServices gamesService, IMapper mapper)
     {
         _mapper = mapper;
         _gamesService = gamesService;
     }
 
+    [NonAction]
     public GameDto MapToDto(Games game)
     {
         return _mapper.Map<GameDto>(game);
@@ -37,6 +38,20 @@ public class GamesController: ControllerBase
         return Ok(games);
     }
 
+    [HttpGet("GamePage/{gameName}")]
+    [ProducesResponseType<string>(StatusCodes.Status200OK)]
+    [ProducesResponseType<string>(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetGamePageInfo(string gameName)
+    {
+        var gamePageInfos = await _gamesService.GetGamePageInfos(gameName);
+
+       if (gamePageInfos != null)
+       {
+        return Ok(gamePageInfos);
+       } 
+       return NotFound($"Game {gameName} not found");
+    }
+    
     [HttpGet("insertDemoGames")]
     [ProducesResponseType<int>(StatusCodes.Status200OK)]
     [ProducesResponseType<int>(StatusCodes.Status404NotFound)]
